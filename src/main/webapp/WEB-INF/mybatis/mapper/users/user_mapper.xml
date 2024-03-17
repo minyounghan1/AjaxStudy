@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="user_mapper">
+
+	<select id="findUsers" resultType="com.app.dto.users.User">
+			SELECT * FROM users
+	</select>
+	
+	<select id="serchUsers" resultType="com.app.dto.users.User">
+        SELECT * FROM USERS WHERE userName LIKE '%'|| #{keyword} || '%'
+    </select>
+	
+	<!-- <select id="serchUsers" resultType="com.app.dto.users.UserSerch" parameterType="String">
+			SELECT * FROM users
+			WHERE 1 = 1
+		<if test="userName != null and userName!= ''">
+			AND recipe_id LIKE '%' || #{keyword} || '%'
+		</if>
+		<if test="userAge != null and userAge != ''">
+			AND recipe_title LIKE '%' || #{keyword} || '%'
+		</if>
+		<if test="userGender != null and userGender != ''">
+			AND recipe_content LIKE '%' || #{keyword} || '%'
+		</if>
+		<if test="userEmail != null and userEmail != ''">
+			AND member_id LIKE '%' || #{keyword} || '%'
+		</if>
+	</select> -->
+
+</mapper>
